@@ -15,7 +15,7 @@ struct ContentView: View {
                 PortfolioView()
                 MarketView()
             }
-            .navigationTitle("Title")
+            .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         }
     }

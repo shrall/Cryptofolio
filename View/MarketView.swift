@@ -10,13 +10,14 @@ import SwiftUI
 struct MarketView: View {
     @State private var searchText = ""
     @StateObject var apiService = APIService()
-    var cryptos: [Crypto] { if searchText.isEmpty {
-        return apiService.cryptos
-    } else {
-        return apiService.cryptos.filter {
-            $0.name.contains(searchText)
+    var cryptos: [Crypto] {
+        if searchText.isEmpty {
+            return apiService.cryptos
+        } else {
+            return apiService.cryptos.filter {
+                $0.name.contains(searchText)
+            }
         }
-    }
     }
     
     var body: some View {
@@ -25,7 +26,7 @@ struct MarketView: View {
                 NavigationLink {
                     Text(String(format: "%.2f", crypto.current_price))
                 } label: {
-                    CryptoCell(crypto: crypto, type: "market")
+//                    CryptoCell(crypto: crypto, type: "market")
                 }
             }
         }
