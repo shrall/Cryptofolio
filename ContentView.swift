@@ -8,15 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    init(){
+        UITableView.appearance().backgroundColor = .clear
+    }
     @State private var tabSelection = 1
     var body: some View {
-        NavigationView {
-            TabView(selection: $tabSelection) {
+        TabView(selection: $tabSelection) {
+            NavigationView{
                 PortfolioView()
-                MarketView()
+                    .navigationTitle("")
+                .navigationBarTitleDisplayMode(.inline)
+                
+            }.tabItem {
+                Label("Portfolio", systemImage: "chart.pie")
             }
-            .navigationTitle("")
-        .navigationBarTitleDisplayMode(.inline)
+            .tag(1)
+            NavigationView{
+                MarketView()
+                    .navigationTitle("")
+                .navigationBarTitleDisplayMode(.inline)
+                
+            }.tabItem {
+                Label("Market", systemImage: "chart.line.uptrend.xyaxis")
+            }
+            .tag(2)
         }
     }
 }

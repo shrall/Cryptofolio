@@ -13,14 +13,14 @@ class TransactionViewModel:ObservableObject{
     @Published var cryptoID = ""
     @Published var amount = 0.0
     @Published var isBuy = true
-    @Published var transactions:[Transaction]!
+    @Published var transactions:[Transaction] = []
     
     
     func createTransaction(context:NSManagedObjectContext){
         let transaction = Transaction(context: context)
         transaction.id = cryptoID
-        transaction.amount = amount
         transaction.isBuy = isBuy
+        transaction.amount = amount
         transaction.date = Date()
         save(context: context)
     }
@@ -37,6 +37,7 @@ class TransactionViewModel:ObservableObject{
     func getTransactions(context:NSManagedObjectContext, id: String){
         let fetchRequest: NSFetchRequest<Transaction> = Transaction.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@" ,id)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         do {
             let allTransactions = try context.fetch(fetchRequest)
             transactions = allTransactions

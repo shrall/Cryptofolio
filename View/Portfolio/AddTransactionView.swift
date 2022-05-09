@@ -47,11 +47,14 @@ struct AddTransactionView: View {
                             portfolioVM.name = crypto?.name ?? ""
                             portfolioVM.symbol = crypto?.symbol ?? ""
                             portfolioVM.image = crypto?.image.large ?? ""
-                            portfolioVM.amount = transactionVM.amount
+                            if(transactionVM.isBuy){
+                                portfolioVM.amount = transactionVM.amount
+                            }else{
+                                portfolioVM.amount = transactionVM.amount * -1
+                            }
                             portfolioVM.createPortfolio(context: viewContext)
                             self.function()
                         } else {
-                            //update existing
                             portfolioVM.cryptoID = crypto?.id ?? ""
                             portfolioVM.amount = transactionVM.amount
                             portfolioVM.editPortfolio(context: viewContext, isBuy: transactionVM.isBuy)

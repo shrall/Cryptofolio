@@ -107,7 +107,7 @@ struct PortfolioView: View {
             .ignoresSafeArea(.all, edges: .top)
             VStack(alignment: .leading, spacing: 2) {
                 Text("Total Asset Value").font(Font.system(size: 8))
-                Text(String(format: "%.2f", 120.137).currencyFormatting()).font(Font.system(size: 24)).bold()
+                Text(String(format: "%.2f", totalAssetValue).currencyFormatting()).font(Font.system(size: 24)).bold()
                 HStack {
                     Text("Assets").bold().foregroundColor(.primary).font(Font.system(size: 22)).textCase(.none)
                     Spacer()
@@ -134,10 +134,6 @@ struct PortfolioView: View {
                 updateTotalPrice()
             }
         }
-        .tabItem {
-            Label("Portfolio", systemImage: "chart.pie")
-        }
-        .tag(1)
     }
     
     func setup() {
