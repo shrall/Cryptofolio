@@ -12,6 +12,7 @@ struct SearchCryptoView: View {
     let maxWidth = UIScreen.main.bounds.width
     let maxHeight = UIScreen.main.bounds.height / 4
     var title: String
+    var searchPlaceholder: String = ""
     @Binding var addView: Bool
 
     @State private var searchText = ""
@@ -52,10 +53,22 @@ struct SearchCryptoView: View {
                     VStack(alignment: .center) {
                         Image("search_empty").resizable()
                             .scaledToFit().frame(maxWidth: maxWidth / 2).padding()
-                        Text("There's nothing here..").foregroundColor(.gray)
+                        if searchText.isEmpty {
+                            Text("Waiting to search..").foregroundColor(.gray)
+                        } else {
+                            Text("No Results Found.").foregroundColor(.gray)
+                        }
                     }.frame(minWidth: maxWidth, minHeight: maxHeight * 2, alignment: .center).background().navigationTitle(title).navigationBarTitleDisplayMode(.inline)
                 }
                 Spacer()
+            }.toolbar {
+                ToolbarItem (placement: .navigationBarLeading) {
+                    Button{
+                        addView.toggle()
+                    } label: {
+                        Text("Cancel")
+                    }
+                }
             }
         }
     }

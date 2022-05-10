@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 class CryptoViewModel: ObservableObject {
-    
     @Published var cryptos: [Crypto] = []
     @Published var searchedCryptos: [SearchedCrypto] = []
     var queryTemp: String = ""

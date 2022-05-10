@@ -20,12 +20,21 @@ struct PortfolioDetailView: View {
     @State private var addView = false
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .center) {
             LineView(data: chartData, title: String(portfolio.amount)+" "+(portfolio.symbol?.uppercased() ?? ""), style: chartStyle)
-                .padding(.horizontal).padding(.bottom)
-            List {
+                .padding(.horizontal)
+            HStack {
+                Text("Transactions").bold().foregroundColor(.primary).font(Font.system(size: 22)).textCase(.none)
+                Spacer()
+                Button {
+                    addView.toggle()
+                } label: {
+                    Image(systemName: "plus").resizable().frame(width: 18, height: 18)
+                }
+            }.padding(.horizontal)
+            ScrollView {
                 if transactionVM.transactions.count > 0 {
-                    Section(header: Text("Transaction").font(Font.system(size: 24)).foregroundColor(.primary)) {
+                    LazyVStack(alignment: .leading) {
                         ForEach(transactionVM.transactions.indices, id: \.self) { index in
                             HStack {
                                 transactionVM.transactions[index].isBuy ?
@@ -43,13 +52,11 @@ struct PortfolioDetailView: View {
                                 } else {
                                     Text(String(transactionVM.transactions[index].amount)+" "+(portfolio.symbol?.uppercased() ?? "")).font(Font.system(size: 18))
                                 }
-                            }.padding(.horizontal)
+                            }
                         }
-                    }
-                    .listRowInsets(EdgeInsets())
-                    .textCase(nil)
+                    }.background()
                 }
-            }
+            }.padding(.horizontal).frame(height: UIScreen.main.bounds.height / 3)
         }
         .toolbar {
             ToolbarItem(placement: .principal) {
@@ -83,31 +90,32 @@ struct PortfolioDetailView: View {
             }
         }
         .onAppear {
-            transactionVM.getTransactions(context: viewContext, id: portfolio.id!)
-            for index in transactionVM.transactions.indices {
-                if index == 0 {
-                    if transactionVM.transactions[index].isBuy {
-                        chartData.append(transactionVM.transactions[index].amount)
-                    } else {
-                        chartData.append(transactionVM.transactions[index].amount * -1)
-                    }
-                } else {
-                    if transactionVM.transactions[index].isBuy {
-                        chartData.append(chartData[index-1]+transactionVM.transactions[index].amount)
-                    } else {
-                        chartData.append(chartData[index-1]-transactionVM.transactions[index].amount)
-                    }
-                }
-            }
+            setup()
         }.sheet(isPresented: $addView) {
-            NavigationView{
-                AddTransactionView(function: self.temp, addView: $addView, cryptoID: portfolio.id!).navigationBarTitleDisplayMode(.inline)
+            NavigationView {
+                AddTransactionView(function: self.setup, addView: $addView, cryptoID: portfolio.id!).navigationBarTitleDisplayMode(.inline)
             }
         }
     }
 
-    func temp() {
-        print("asd")
+    func setup() {
+        print("setup")
+        transactionVM.getTransactions(context: viewContext, id: portfolio.id!)
+        for index in transactionVM.transactions.indices {
+            if index == 0 {
+                if transactionVM.transactions[transactionVM.transactions.count - 1 - index].isBuy {
+                    chartData.append(transactionVM.transactions[transactionVM.transactions.count - 1 - index].amount)
+                } else {
+                    chartData.append(transactionVM.transactions[transactionVM.transactions.count - 1 - index].amount * -1)
+                }
+            } else {
+                if transactionVM.transactions[transactionVM.transactions.count - 1 - index].isBuy {
+                    chartData.append(chartData[index - 1]+transactionVM.transactions[transactionVM.transactions.count - 1 - index].amount)
+                } else {
+                    chartData.append(chartData[index - 1] - transactionVM.transactions[transactionVM.transactions.count - 1 - index].amount)
+                }
+            }
+        }
     }
 }
 

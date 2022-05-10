@@ -12,7 +12,6 @@ struct PortfolioView: View {
     @EnvironmentObject var portfolioVM: PortfolioViewModel
     @EnvironmentObject var transactionVM: TransactionViewModel
     
-    
     @FetchRequest(entity: Portfolio.entity(), sortDescriptors: [NSSortDescriptor(key: "id", ascending: true)]) var fetchedPortfolio: FetchedResults<Portfolio>
     
     let maxWidth = UIScreen.main.bounds.width
@@ -46,10 +45,10 @@ struct PortfolioView: View {
                         return AnyView(
                             VStack(alignment: .leading) {
                                 Spacer()
-                                if time < 18{
+                                if time < 18 {
                                     Text("GM, Marshall!").bold().font(Font.system(size: 32))
                                         .frame(maxWidth: .infinity, alignment: .leading)
-                                }else{
+                                } else {
                                     Text("GN, Marshall!").bold().font(Font.system(size: 32))
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                 }
@@ -130,7 +129,7 @@ struct PortfolioView: View {
             setup()
             cryptoVM.cryptos = []
         }.sheet(isPresented: $addView) {
-            SearchCryptoView(function: self.setup, title: "Select Crypto", addView: $addView).onDisappear{
+            SearchCryptoView(function: self.setup, title: "Select Crypto", addView: $addView).onDisappear {
                 updateTotalPrice()
             }
         }

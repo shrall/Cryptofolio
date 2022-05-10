@@ -53,7 +53,6 @@ struct AddTransactionView: View {
                                 portfolioVM.amount = transactionVM.amount * -1
                             }
                             portfolioVM.createPortfolio(context: viewContext)
-                            self.function()
                         } else {
                             portfolioVM.cryptoID = crypto?.id ?? ""
                             portfolioVM.amount = transactionVM.amount
@@ -61,6 +60,7 @@ struct AddTransactionView: View {
                         }
                         transactionVM.cryptoID = crypto?.id ?? ""
                         transactionVM.createTransaction(context: viewContext)
+                        self.function()
                         addView.toggle()
                     } label: {
                         Text("Save")
