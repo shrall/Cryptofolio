@@ -27,7 +27,6 @@ struct ContentView: View {
                 MarketView()
                     .navigationTitle("")
                 .navigationBarTitleDisplayMode(.inline)
-                
             }.tabItem {
                 Label("Market", systemImage: "chart.line.uptrend.xyaxis")
             }

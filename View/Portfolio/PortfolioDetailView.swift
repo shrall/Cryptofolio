@@ -22,6 +22,7 @@ struct PortfolioDetailView: View {
     var body: some View {
         VStack(alignment: .center) {
             LineView(data: chartData, title: String(portfolio.amount)+" "+(portfolio.symbol?.uppercased() ?? ""), style: chartStyle)
+                .frame(height: 330)
                 .padding(.horizontal)
             HStack {
                 Text("Transactions").bold().foregroundColor(.primary).font(Font.system(size: 22)).textCase(.none)
@@ -56,7 +57,7 @@ struct PortfolioDetailView: View {
                         }
                     }.background()
                 }
-            }.padding(.horizontal).frame(height: UIScreen.main.bounds.height / 3)
+            }.padding(.horizontal)
         }
         .toolbar {
             ToolbarItem(placement: .principal) {

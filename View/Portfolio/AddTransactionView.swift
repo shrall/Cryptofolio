@@ -82,8 +82,8 @@ struct AddTransactionView: View {
             }
             Spacer()
         }.padding().onAppear {
-            cryptoVM.fetchDetail(id: cryptoID) { meta in
-                crypto = meta
+            cryptoVM.fetchDetail(id: cryptoID) { result in
+                crypto = result
             }
         }
     }

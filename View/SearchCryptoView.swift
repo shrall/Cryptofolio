@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct SearchCryptoView: View {
-    var function: () -> Void
     let maxWidth = UIScreen.main.bounds.width
     let maxHeight = UIScreen.main.bounds.height / 4
-    var title: String
     var searchPlaceholder: String = ""
+    var function: (() -> Void)?
+    var marketFunction : ((String) -> Void)?
+    var title: String
+    var isMarket: Bool
     @Binding var addView: Bool
 
     @State private var searchText = ""
@@ -29,26 +31,48 @@ struct SearchCryptoView: View {
 
     var body: some View {
         NavigationView {
-            VStack(spacing: 0){
+            VStack(spacing: 8){
                 SearchBar(text: $searchText, placeholder: "Search..").padding(.horizontal).padding(.vertical, -8)
                 if searchedCryptos.count > 0 {
                     List {
                         ForEach(searchedCryptos, id: \.self) { crypto in
-                            NavigationLink {
-                                AddTransactionView(function: self.function, addView: $addView, cryptoID: crypto.id)
-                            } label: {
-                                AsyncImage(url: URL(string: crypto.large)) { image in
-                                    image.resizable()
-                                        .clipShape(Circle())
-                                } placeholder: {
-                                    LinearGradient(colors: [.gray, .white], startPoint: .topLeading, endPoint: .bottomTrailing)
-                                        .clipShape(Circle())
+                            if(isMarket){
+                                Button{
+                                    addView.toggle()
+                                    self.marketFunction!(crypto.id)
+                                } label: {
+                                    HStack{
+                                        AsyncImage(url: URL(string: crypto.large)) { image in
+                                            image.resizable()
+                                                .clipShape(Circle())
+                                        } placeholder: {
+                                            LinearGradient(colors: [.gray, .white], startPoint: .topLeading, endPoint: .bottomTrailing)
+                                                .clipShape(Circle())
+                                        }
+                                        .frame(width: 24, height: 24)
+                                        Text(crypto.name)
+                                    }.foregroundColor(.primary).padding(.horizontal)
+                                }.listRowInsets(EdgeInsets())
+                            }else{
+                                NavigationLink {
+                                    AddTransactionView(function: self.function!, addView: $addView, cryptoID: crypto.id)
+                                } label: {
+                                    AsyncImage(url: URL(string: crypto.large)) { image in
+                                        image.resizable()
+                                            .clipShape(Circle())
+                                    } placeholder: {
+                                        LinearGradient(colors: [.gray, .white], startPoint: .topLeading, endPoint: .bottomTrailing)
+                                            .clipShape(Circle())
+                                    }
+                                    .frame(width: 24, height: 24)
+                                    Text(crypto.name)
                                 }
-                                .frame(width: 24, height: 24)
-                                Text(crypto.name)
                             }
                         }
-                    }.background().navigationTitle(title).navigationBarTitleDisplayMode(.inline)
+                    }
+                    .onAppear(perform: {
+                        UITableView.appearance().contentInset.top = -35
+                    }).background().navigationTitle(title).navigationBarTitleDisplayMode(.inline)
                 } else {
                     VStack(alignment: .center) {
                         Image("search_empty").resizable()

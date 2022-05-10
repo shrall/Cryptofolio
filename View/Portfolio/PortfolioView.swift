@@ -31,7 +31,7 @@ struct PortfolioView: View {
             ScrollView {
                 VStack(alignment: .center, spacing: 0) {
                     GeometryReader { reader -> AnyView in
-                        let y = reader.frame(in: .global).minY + maxHeight
+                        let y = reader.frame(in: .global).minY+maxHeight
                         
                         if y < 0 {
                             withAnimation(.linear(duration: 0.1)) {
@@ -46,14 +46,14 @@ struct PortfolioView: View {
                             VStack(alignment: .leading) {
                                 Spacer()
                                 if time < 18 {
-                                    Text("GM, Marshall!").bold().font(Font.system(size: 32))
+                                    Text("GM, "+(UserDefaults.standard.string(forKey: "userName") ?? "User")+"!").bold().font(Font.system(size: 32))
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                 } else {
-                                    Text("GN, Marshall!").bold().font(Font.system(size: 32))
+                                    Text("GN, "+(UserDefaults.standard.string(forKey: "userName") ?? "User")+"!").bold().font(Font.system(size: 32))
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                 }
                                 Text("Total Asset Value").font(Font.system(size: 12)).padding(.top, 1)
-                                if cryptoVM.cryptos.count != fetchedPortfolio.count {
+                                if cryptoVM.portfolioCryptos.count != fetchedPortfolio.count {
                                     ProgressView().frame(width: 36, height: 48)
                                 } else {
                                     Text(String(format: "%.2f", totalAssetValue).currencyFormatting()).font(Font.system(size: 36)).bold().padding(.bottom)
@@ -82,10 +82,10 @@ struct PortfolioView: View {
                                 NavigationLink {
                                     PortfolioDetailView(portfolio: fetchedPortfolio[index])
                                 } label: {
-                                    if cryptoVM.cryptos.count != fetchedPortfolio.count {
+                                    if cryptoVM.portfolioCryptos.count != fetchedPortfolio.count {
                                         CryptoCell(type: "portfolio", image: fetchedPortfolio[index].image!, name: fetchedPortfolio[index].name!, symbol: fetchedPortfolio[index].symbol!, current_price: 0.0, price_change_percentage_24h: 0.0, amount: fetchedPortfolio[index].amount).padding(.horizontal)
                                     } else {
-                                        CryptoCell(type: "portfolio", image: fetchedPortfolio[index].image!, name: fetchedPortfolio[index].name!, symbol: fetchedPortfolio[index].symbol!, current_price: cryptoVM.cryptos[index].current_price, price_change_percentage_24h: 0.0, amount: fetchedPortfolio[index].amount).padding(.horizontal).task {
+                                        CryptoCell(type: "portfolio", image: fetchedPortfolio[index].image!, name: fetchedPortfolio[index].name!, symbol: fetchedPortfolio[index].symbol!, current_price: cryptoVM.portfolioCryptos[index].current_price, price_change_percentage_24h: 0.0, amount: fetchedPortfolio[index].amount).padding(.horizontal).task {
                                             updateTotalPrice()
                                         }
                                     }
@@ -127,9 +127,9 @@ struct PortfolioView: View {
             .opacity(showHeader ? 1 : 0)
         }.onAppear {
             setup()
-            cryptoVM.cryptos = []
+            cryptoVM.portfolioCryptos = []
         }.sheet(isPresented: $addView) {
-            SearchCryptoView(function: self.setup, title: "Select Crypto", addView: $addView).onDisappear {
+            SearchCryptoView(function: self.setup, title: "Select Crypto",isMarket: false, addView: $addView).onDisappear {
                 updateTotalPrice()
             }
         }
@@ -142,15 +142,15 @@ struct PortfolioView: View {
                 ids.append(fetchedPortfolio[number].id!)
             }
             cryptoVM.fetchPrice(ids: ids)
-            cryptoVM.cryptos = []
+            cryptoVM.portfolioCryptos = []
         }
     }
     
     func updateTotalPrice() {
-        if fetchedPortfolio.count == cryptoVM.cryptos.count {
+        if fetchedPortfolio.count == cryptoVM.portfolioCryptos.count {
             totalAssetValue = 0
             for number in 0 ..< fetchedPortfolio.count {
-                totalAssetValue += fetchedPortfolio[number].amount * cryptoVM.cryptos[number].current_price
+                totalAssetValue += fetchedPortfolio[number].amount * cryptoVM.portfolioCryptos[number].current_price
             }
         }
     }
