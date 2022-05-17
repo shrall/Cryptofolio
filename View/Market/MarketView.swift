@@ -21,79 +21,95 @@ struct MarketView: View {
 
     @FetchRequest(entity: Portfolio.entity(), sortDescriptors: [NSSortDescriptor(key: "id", ascending: true)]) var fetchedPortfolio: FetchedResults<Portfolio>
 
+    init(){
+        UITableView.appearance().backgroundColor = .clear
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("Top Cryptos").bold().foregroundColor(.primary).font(Font.system(size: 24)).textCase(.none).padding(.horizontal)
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack {
-                    ForEach(cryptoVM.cryptos.indices, id: \.self) { index in
-                        NavigationLink{
-                            MarketDetailView(id: cryptoVM.cryptos[index].id)
-                        }label:{
-                            VStack(alignment: .leading, spacing: 2) {
-                                HStack(spacing: 12) {
-                                    AsyncImage(url: URL(string: cryptoVM.cryptos[index].image)) { image in
-                                        image.resizable().frame(width: 32, height: 32)
-                                            .clipShape(Circle())
-                                    } placeholder: {
-                                        LinearGradient(colors: [.gray, .white], startPoint: .topLeading, endPoint: .bottomTrailing)
-                                            .clipShape(Circle())
-                                    }
-                                    .frame(width: 24, height: 24)
-                                    VStack(alignment: .leading) {
-                                        Text(cryptoVM.cryptos[index].name).lineLimit(1).frame(width: UIScreen.main.bounds.width / 4, alignment: .leading).foregroundColor(.primary)
-                                    }
-                                }.padding(.bottom, 4)
-                                Text("24h change").font(Font.system(size: 12)).foregroundColor(.gray)
-                                cryptoVM.cryptos[index].price_change_percentage_24h > 0.0 ?
-                                    HStack {
-                                        Image(systemName: "arrowtriangle.up.fill").font(Font.system(size: 18)).foregroundColor(.green)
-                                        Text(String(format: "%.2f", cryptoVM.cryptos[index].price_change_percentage_24h) + "%").font(Font.system(size: 16)).foregroundColor(.green)
-                                    } :
-                                    HStack {
-                                        Image(systemName: "arrowtriangle.down.fill").font(Font.system(size: 18)).foregroundColor(.red)
-                                        Text(String(format: "%.2f", cryptoVM.cryptos[index].price_change_percentage_24h)
-                                            + "%").font(Font.system(size: 16)).foregroundColor(.red)
-                                    }
-                            }.padding().background().cornerRadius(8).shadow(color: .gray, radius: 1)
+            if(cryptoVM.cryptos.count > 0){
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack {
+                        ForEach(cryptoVM.cryptos.indices, id: \.self) { index in
+                            NavigationLink{
+                                MarketDetailView(id: cryptoVM.cryptos[index].id)
+                            }label:{
+                                VStack(alignment: .leading, spacing: 2) {
+                                    HStack(spacing: 12) {
+                                        AsyncImage(url: URL(string: cryptoVM.cryptos[index].image)) { image in
+                                            image.resizable().frame(width: 32, height: 32)
+                                                .clipShape(Circle())
+                                        } placeholder: {
+                                            LinearGradient(colors: [.gray, .white], startPoint: .topLeading, endPoint: .bottomTrailing)
+                                                .clipShape(Circle())
+                                        }
+                                        .frame(width: 24, height: 24)
+                                        VStack(alignment: .leading) {
+                                            Text(cryptoVM.cryptos[index].name).lineLimit(1).frame(width: UIScreen.main.bounds.width / 4, alignment: .leading).foregroundColor(.primary)
+                                        }
+                                    }.padding(.bottom, 4)
+                                    Text("24h change").font(Font.system(size: 12)).foregroundColor(.gray)
+                                    cryptoVM.cryptos[index].price_change_percentage_24h > 0.0 ?
+                                        HStack {
+                                            Image(systemName: "arrowtriangle.up.fill").font(Font.system(size: 18)).foregroundColor(.green)
+                                            Text(String(format: "%.2f", cryptoVM.cryptos[index].price_change_percentage_24h) + "%").font(Font.system(size: 16)).foregroundColor(.green)
+                                        } :
+                                        HStack {
+                                            Image(systemName: "arrowtriangle.down.fill").font(Font.system(size: 18)).foregroundColor(.red)
+                                            Text(String(format: "%.2f", cryptoVM.cryptos[index].price_change_percentage_24h)
+                                                + "%").font(Font.system(size: 16)).foregroundColor(.red)
+                                        }
+                                }.padding().background().cornerRadius(8).shadow(color: .gray, radius: 1)
+                            }
                         }
-                    }
-                }.padding(.leading)
+                    }.padding(.leading)
+                }
+                .frame(
+                    maxHeight: 100
+                )
+            }else{
+                HStack(alignment: .center){
+                    ProgressView().frame(width: UIScreen.main.bounds.width, alignment: .center).padding(.leading)
+                }
             }
-            .frame(
-                maxHeight: 100
-            )
             Text("Trending Cryptos").bold().foregroundColor(.primary).font(Font.system(size: 24)).textCase(.none).padding(.horizontal)
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack {
-                    ForEach(cryptoVM.trendingCryptos.indices, id: \.self) { index in
-                        NavigationLink{
-                            MarketDetailView(id: cryptoVM.trendingCryptos[index]["item"]!.id)
-                        }label:{
-                            VStack(alignment: .leading) {
-                                HStack(spacing: 12) {
-                                    AsyncImage(url: URL(string: cryptoVM.trendingCryptos[index]["item"]!.large)) { image in
-                                        image.resizable().frame(width: 32, height: 32)
-                                            .clipShape(Circle())
-                                    } placeholder: {
-                                        LinearGradient(colors: [.gray, .white], startPoint: .topLeading, endPoint: .bottomTrailing)
-                                            .clipShape(Circle())
-                                    }
-                                    .frame(width: 24, height: 24)
-                                    Text(cryptoVM.trendingCryptos[index]["item"]!.name).lineLimit(1).frame(width: UIScreen.main.bounds.width / 4, alignment: .leading).foregroundColor(.primary)
-                                }
+            if(cryptoVM.trendingCryptos.count > 0){
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack {
+                        ForEach(cryptoVM.trendingCryptos.indices, id: \.self) { index in
+                            NavigationLink{
+                                MarketDetailView(id: cryptoVM.trendingCryptos[index]["item"]!.id)
+                            }label:{
                                 VStack(alignment: .leading) {
-                                    Text("MCap Rank").font(Font.system(size: 12)).foregroundColor(.gray)
-                                    Text(String(cryptoVM.trendingCryptos[index]["item"]!.market_cap_rank)).font(Font.system(size: 16)).foregroundColor(.primary)
-                                }
-                            }.padding().background().cornerRadius(8).shadow(color: .gray, radius: 1)
+                                    HStack(spacing: 12) {
+                                        AsyncImage(url: URL(string: cryptoVM.trendingCryptos[index]["item"]!.large)) { image in
+                                            image.resizable().frame(width: 32, height: 32)
+                                                .clipShape(Circle())
+                                        } placeholder: {
+                                            LinearGradient(colors: [.gray, .white], startPoint: .topLeading, endPoint: .bottomTrailing)
+                                                .clipShape(Circle())
+                                        }
+                                        .frame(width: 24, height: 24)
+                                        Text(cryptoVM.trendingCryptos[index]["item"]!.name).lineLimit(1).frame(width: UIScreen.main.bounds.width / 4, alignment: .leading).foregroundColor(.primary)
+                                    }
+                                    VStack(alignment: .leading) {
+                                        Text("MCap Rank").font(Font.system(size: 12)).foregroundColor(.gray)
+                                        Text(String(cryptoVM.trendingCryptos[index]["item"]!.market_cap_rank)).font(Font.system(size: 16)).foregroundColor(.primary)
+                                    }
+                                }.padding().background().cornerRadius(8).shadow(color: .gray, radius: 1)
+                            }
                         }
-                    }
-                }.padding(.leading)
+                    }.padding(.leading)
+                }
+                .frame(
+                    maxHeight: 100
+                )
+            }else{
+                HStack(alignment: .center){
+                    ProgressView().frame(width: UIScreen.main.bounds.width, alignment: .center).padding(.leading)
+                }
             }
-            .frame(
-                maxHeight: 100
-            )
             Text("Your Portfolio").bold().foregroundColor(.primary).font(Font.system(size: 24)).textCase(.none).padding(.horizontal)
                 ScrollView(.vertical, showsIndicators: false) {
                     if cryptoVM.portfolioCryptos.count > 0 {

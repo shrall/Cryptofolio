@@ -82,7 +82,7 @@ struct SearchCryptoView: View {
                         } else {
                             Text("No Results Found.").foregroundColor(.gray)
                         }
-                    }.frame(minWidth: maxWidth, minHeight: maxHeight * 2, alignment: .center).background().navigationTitle(title).navigationBarTitleDisplayMode(.inline)
+                    }.frame(minWidth: maxWidth, minHeight: maxHeight, alignment: .center).background().navigationTitle(title).navigationBarTitleDisplayMode(.inline)
                 }
                 Spacer()
             }.toolbar {

@@ -11,8 +11,17 @@ import SwiftUICharts
 struct MarketDetailView: View {
     var id: String
     @State var crypto: CryptoDetail?
+    @State var cryptoPrice: CryptoPrice?{
+        didSet{
+            for number in 0 ..< (cryptoPrice?.prices.count ?? 0) {
+                chartData.append(cryptoPrice?.prices[number][1] ?? 0)
+            }
+        }
+    }
     @State private var aboutView = false
     @StateObject var cryptoVM = CryptoViewModel()
+    
+    @State var chartData : [Double] = []
 
     let chartStyle = ChartStyle(backgroundColor: Color.clear, accentColor: Colors.DarkPurple, secondGradientColor: Colors.GradientPurple, textColor: Color.primary, legendTextColor: Color.gray, dropShadowColor: Color.clear)
 
@@ -41,9 +50,15 @@ struct MarketDetailView: View {
                         }
                 }
                 .padding(.horizontal)
-                LineView(data: crypto?.market_data.sparkline_7d.price.suffix(24) ?? [], title: String(crypto?.market_data.current_price.usd ?? 0.0).currencyFormatting(), legend: "Last 24h price change", style: chartStyle)
-                    .frame(height: 370)
-                    .padding(.horizontal)
+                if(UserDefaults.standard.object(forKey: "preferredCurrency") as! String == "usd" || UserDefaults.standard.object(forKey: "preferredCurrency") as! String? == nil){
+                    LineView(data: chartData , title: String(crypto?.market_data.current_price.usd ?? 0.0).currencyFormatting(), legend: "Last 24h price change", style: chartStyle)
+                        .frame(height: 370)
+                        .padding(.horizontal)
+                }else{
+                    LineView(data: chartData , title: String(crypto?.market_data.current_price.idr ?? 0.0).currencyFormatting(), legend: "Last 24h price change", style: chartStyle)
+                        .frame(height: 370)
+                        .padding(.horizontal)
+                }
                 Divider().padding()
                 HStack {
                     Image(systemName: "info.circle")
@@ -63,30 +78,58 @@ struct MarketDetailView: View {
                         Spacer()
                         Text("#" + String(crypto?.market_cap_rank ?? 0))
                     }
-                    HStack {
-                        Text("Market Cap").foregroundColor(.gray)
-                        Spacer()
-                        Text(String(crypto?.market_data.market_cap.usd ?? 0).currencyFormatting())
-                    }
-                    HStack {
-                        Text("24H High").foregroundColor(.gray)
-                        Spacer()
-                        Text(String(crypto?.market_data.high_24h.usd ?? 0).currencyFormatting())
-                    }
-                    HStack {
-                        Text("24H Low").foregroundColor(.gray)
-                        Spacer()
-                        Text(String(crypto?.market_data.low_24h.usd ?? 0).currencyFormatting())
-                    }
-                    HStack {
-                        Text("All-Time High").foregroundColor(.gray)
-                        Spacer()
-                        Text(String(crypto?.market_data.ath.usd ?? 0).currencyFormatting())
-                    }
-                    HStack {
-                        Text("All-Time Low").foregroundColor(.gray)
-                        Spacer()
-                        Text(String(crypto?.market_data.atl.usd ?? 0).currencyFormatting())
+                    if(UserDefaults.standard.object(forKey: "preferredCurrency") as! String == "usd" || UserDefaults.standard.object(forKey: "preferredCurrency") as! String? == nil){
+                        HStack {
+                            Text("Market Cap").foregroundColor(.gray)
+                            Spacer()
+                            Text(String(crypto?.market_data.market_cap.usd ?? 0).currencyFormatting())
+                        }
+                        HStack {
+                            Text("24H High").foregroundColor(.gray)
+                            Spacer()
+                            Text(String(crypto?.market_data.high_24h.usd ?? 0).currencyFormatting())
+                        }
+                        HStack {
+                            Text("24H Low").foregroundColor(.gray)
+                            Spacer()
+                            Text(String(crypto?.market_data.low_24h.usd ?? 0).currencyFormatting())
+                        }
+                        HStack {
+                            Text("All-Time High").foregroundColor(.gray)
+                            Spacer()
+                            Text(String(crypto?.market_data.ath.usd ?? 0).currencyFormatting())
+                        }
+                        HStack {
+                            Text("All-Time Low").foregroundColor(.gray)
+                            Spacer()
+                            Text(String(crypto?.market_data.atl.usd ?? 0).currencyFormatting())
+                        }
+                    }else{
+                        HStack {
+                            Text("Market Cap").foregroundColor(.gray)
+                            Spacer()
+                            Text(String(crypto?.market_data.market_cap.idr ?? 0).currencyFormatting())
+                        }
+                        HStack {
+                            Text("24H High").foregroundColor(.gray)
+                            Spacer()
+                            Text(String(crypto?.market_data.high_24h.idr ?? 0).currencyFormatting())
+                        }
+                        HStack {
+                            Text("24H Low").foregroundColor(.gray)
+                            Spacer()
+                            Text(String(crypto?.market_data.low_24h.idr ?? 0).currencyFormatting())
+                        }
+                        HStack {
+                            Text("All-Time High").foregroundColor(.gray)
+                            Spacer()
+                            Text(String(crypto?.market_data.ath.idr ?? 0).currencyFormatting())
+                        }
+                        HStack {
+                            Text("All-Time Low").foregroundColor(.gray)
+                            Spacer()
+                            Text(String(crypto?.market_data.atl.idr ?? 0).currencyFormatting())
+                        }
                     }
                 }.padding(.horizontal)
             }
@@ -116,6 +159,10 @@ struct MarketDetailView: View {
             crypto = nil
             cryptoVM.fetchDetail(id: id) { result in
                 crypto = result
+            }
+            cryptoPrice = nil
+            cryptoVM.fetchChartData(id: id){result in
+                cryptoPrice = result
             }
         }
     }

@@ -26,6 +26,10 @@ struct PortfolioView: View {
     
     @StateObject var cryptoVM = CryptoViewModel()
     
+    init(){
+        UITableView.appearance().backgroundColor = .clear
+    }
+    
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .top)) {
             ScrollView {

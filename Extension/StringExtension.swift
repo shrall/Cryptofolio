@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension String {
     // formatting text for currency textField
@@ -13,7 +14,11 @@ extension String {
         if let value = Double(self) {
             let formatter = NumberFormatter()
             formatter.numberStyle = .currency
-            formatter.locale = Locale(identifier: "en_US")
+            if(UserDefaults.standard.string(forKey: "preferredCurrency") == "usd" || UserDefaults.standard.string(forKey: "preferredCurrency") == nil){
+                formatter.locale = Locale(identifier: "en_US")
+            }else{
+                formatter.locale = Locale(identifier: "id_ID")
+            }
             formatter.maximumFractionDigits = 2
             formatter.minimumFractionDigits = 2
             if let str = formatter.string(for: value) {

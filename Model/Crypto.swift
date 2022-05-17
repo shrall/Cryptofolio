@@ -82,3 +82,7 @@ struct CurrencyType: Hashable, Codable {
 struct Sparkline7D: Hashable, Codable {
     let price: [Double]
 }
+
+struct CryptoPrice: Hashable, Codable, Equatable {
+    let prices: [[Double]]
+}

@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    init(){
-        UITableView.appearance().backgroundColor = .clear
-    }
     @State private var tabSelection = 1
     var body: some View {
         TabView(selection: $tabSelection) {
@@ -31,6 +28,14 @@ struct ContentView: View {
                 Label("Market", systemImage: "chart.line.uptrend.xyaxis")
             }
             .tag(2)
+            NavigationView{
+                SettingsView()
+                    .navigationTitle("Settings")
+                .navigationBarTitleDisplayMode(.inline)
+            }.tabItem {
+                Label("Settings", systemImage: "gearshape")
+            }
+            .tag(3)
         }
     }
 }
