@@ -50,7 +50,7 @@ struct MarketDetailView: View {
                         }
                 }
                 .padding(.horizontal)
-                if(UserDefaults.standard.object(forKey: "preferredCurrency") as! String == "usd" || UserDefaults.standard.object(forKey: "preferredCurrency") as! String? == nil){
+                if(UserDefaults.standard.string(forKey: "preferredCurrency") == "usd" || UserDefaults.standard.string(forKey: "preferredCurrency") == nil){
                     LineView(data: chartData , title: String(crypto?.market_data.current_price.usd ?? 0.0).currencyFormatting(), legend: "Last 24h price change", style: chartStyle)
                         .frame(height: 370)
                         .padding(.horizontal)
@@ -78,7 +78,7 @@ struct MarketDetailView: View {
                         Spacer()
                         Text("#" + String(crypto?.market_cap_rank ?? 0))
                     }
-                    if(UserDefaults.standard.object(forKey: "preferredCurrency") as! String == "usd" || UserDefaults.standard.object(forKey: "preferredCurrency") as! String? == nil){
+                    if(UserDefaults.standard.string(forKey: "preferredCurrency") == "usd" || UserDefaults.standard.string(forKey: "preferredCurrency") == nil){
                         HStack {
                             Text("Market Cap").foregroundColor(.gray)
                             Spacer()
@@ -160,6 +160,7 @@ struct MarketDetailView: View {
             cryptoVM.fetchDetail(id: id) { result in
                 crypto = result
             }
+            chartData = []
             cryptoPrice = nil
             cryptoVM.fetchChartData(id: id){result in
                 cryptoPrice = result

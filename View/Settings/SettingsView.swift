@@ -20,7 +20,7 @@ struct SettingsView: View {
                 HStack{
                     Text("User Name")
                     Spacer()
-                    Text(UserDefaults.standard.object(forKey: "userName") as? String ?? "")
+                    Text(UserDefaults.standard.string(forKey: "userName") ?? "")
                 }
             }
             Picker(selection: $userSettings.preferredCurrency, label: Text("Preferred Currency")) {

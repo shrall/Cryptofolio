@@ -15,7 +15,6 @@ struct ContentView: View {
                 PortfolioView()
                     .navigationTitle("")
                 .navigationBarTitleDisplayMode(.inline)
-                
             }.tabItem {
                 Label("Portfolio", systemImage: "chart.pie")
             }

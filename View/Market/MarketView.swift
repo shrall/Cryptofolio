@@ -95,7 +95,7 @@ struct MarketView: View {
                                     }
                                     VStack(alignment: .leading) {
                                         Text("MCap Rank").font(Font.system(size: 12)).foregroundColor(.gray)
-                                        Text(String(cryptoVM.trendingCryptos[index]["item"]!.market_cap_rank)).font(Font.system(size: 16)).foregroundColor(.primary)
+                                        Text(String(cryptoVM.trendingCryptos[index]["item"]!.market_cap_rank ?? 0)).font(Font.system(size: 16)).foregroundColor(.primary)
                                     }
                                 }.padding().background().cornerRadius(8).shadow(color: .gray, radius: 1)
                             }

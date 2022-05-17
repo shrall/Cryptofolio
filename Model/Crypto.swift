@@ -30,7 +30,7 @@ struct SearchedCrypto: Hashable, Codable {
     let name: String
     let symbol: String
     let large: String
-    let market_cap_rank: Int
+    let market_cap_rank: Int?
 }
 
 // MARK: - CryptoDetail

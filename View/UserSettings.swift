@@ -21,7 +21,7 @@ class UserSettings: ObservableObject {
     }
     
     init() {
-        self.userName = UserDefaults.standard.object(forKey: "userName") as? String ?? ""
-        self.preferredCurrency = UserDefaults.standard.object(forKey: "preferredCurrency") as? String ?? ""
+        self.userName = UserDefaults.standard.string(forKey: "userName") ?? ""
+        self.preferredCurrency = UserDefaults.standard.string(forKey: "preferredCurrency") ?? ""
     }
 }

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 class CryptoViewModel: ObservableObject {
     @Published var cryptos: [Crypto] = []
