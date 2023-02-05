@@ -100,6 +100,7 @@ struct PortfolioDetailView: View {
     }
 
     func setup() {
+        chartData = []
         transactionVM.getTransactions(context: viewContext, id: portfolio.id!)
         for index in transactionVM.transactions.indices {
             if index == 0 {

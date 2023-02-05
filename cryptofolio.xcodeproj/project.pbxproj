@@ -1,0 +1,940 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		100FE77E282B987600F71AA0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100FE77D282B987600F71AA0 /* SettingsView.swift */; };
+		1070ECC42825C67E00762416 /* PortfolioDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1070ECC32825C67E00762416 /* PortfolioDetailView.swift */; };
+		1070ECC8282638B500762416 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 1070ECC7282638B500762416 /* SwiftUICharts */; };
+		1070ECCC282ACEC000762416 /* MarketDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1070ECCB282ACEC000762416 /* MarketDetailView.swift */; };
+		1073C387282CF36800C8BA12 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073C386282CF36800C8BA12 /* UserSettings.swift */; };
+		1073C3B32833790800C8BA12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1073C3B22833790800C8BA12 /* Assets.xcassets */; };
+		1073C3B92833790800C8BA12 /* CryptofolioWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1073C3B82833790800C8BA12 /* CryptofolioWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1073C3BE2833790800C8BA12 /* cryptofolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073C3BD2833790800C8BA12 /* cryptofolioApp.swift */; };
+		1073C3C02833790800C8BA12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073C3BF2833790800C8BA12 /* ContentView.swift */; };
+		1073C3C22833790800C8BA12 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073C3C12833790800C8BA12 /* NotificationController.swift */; };
+		1073C3C42833790800C8BA12 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073C3C32833790800C8BA12 /* NotificationView.swift */; };
+		1073C3C62833790800C8BA12 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073C3C52833790800C8BA12 /* ComplicationController.swift */; };
+		1073C3C82833790900C8BA12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1073C3C72833790900C8BA12 /* Assets.xcassets */; };
+		1073C3CB2833790900C8BA12 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1073C3CA2833790900C8BA12 /* Preview Assets.xcassets */; };
+		1073C3D02833790900C8BA12 /* CryptofolioWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 1073C3B02833790600C8BA12 /* CryptofolioWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1073C3DD283411DF00C8BA12 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073C3DC283411DF00C8BA12 /* Crypto.swift */; };
+		1073C3E02834123100C8BA12 /* CryptoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073C3DF2834123100C8BA12 /* CryptoViewModel.swift */; };
+		1073C3E22834126D00C8BA12 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073C3E12834126D00C8BA12 /* Constants.swift */; };
+		1073C3E52834169800C8BA12 /* MarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073C3E42834169800C8BA12 /* MarketView.swift */; };
+		1073C3E7283428F600C8BA12 /* MarketDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073C3E6283428F600C8BA12 /* MarketDetailView.swift */; };
+		1073C3EA28342F2C00C8BA12 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073C3E928342F2C00C8BA12 /* StringExtension.swift */; };
+		1077D08928204DB00083AD5B /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077D08828204DB00083AD5B /* ViewExtension.swift */; };
+		1077D08B28219EFD0083AD5B /* CryptoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077D08A28219EFD0083AD5B /* CryptoViewModel.swift */; };
+		1077D0912821A0A50083AD5B /* cryptofolio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1077D08F2821A0A50083AD5B /* cryptofolio.xcdatamodeld */; };
+		1077D0932821A25F0083AD5B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077D0922821A25F0083AD5B /* Persistence.swift */; };
+		1077D0952821A3480083AD5B /* PortfolioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077D0942821A3480083AD5B /* PortfolioViewModel.swift */; };
+		1077D0972821A5020083AD5B /* AddPortfolioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077D0962821A5020083AD5B /* AddPortfolioView.swift */; };
+		1077D099282277D00083AD5B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077D098282277D00083AD5B /* SearchBar.swift */; };
+		1077D09B2822A2F00083AD5B /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077D09A2822A2F00083AD5B /* TransactionViewModel.swift */; };
+		1077D09D2822A40F0083AD5B /* SearchCryptoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077D09C2822A40F0083AD5B /* SearchCryptoView.swift */; };
+		1077D09F2822AB6A0083AD5B /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077D09E2822AB6A0083AD5B /* AddTransactionView.swift */; };
+		10905696281FBE83004897DA /* cryptofolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10905695281FBE83004897DA /* cryptofolioApp.swift */; };
+		10905698281FBE83004897DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10905697281FBE83004897DA /* ContentView.swift */; };
+		1090569A281FBE84004897DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10905699281FBE84004897DA /* Assets.xcassets */; };
+		1090569D281FBE84004897DA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1090569C281FBE84004897DA /* Preview Assets.xcassets */; };
+		109056A4281FBE92004897DA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109056A3281FBE92004897DA /* Constants.swift */; };
+		109056A9281FBF34004897DA /* PortfolioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109056A8281FBF34004897DA /* PortfolioView.swift */; };
+		109056AB281FBF3C004897DA /* MarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109056AA281FBF3C004897DA /* MarketView.swift */; };
+		109056AD281FBF4C004897DA /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109056AC281FBF4C004897DA /* Crypto.swift */; };
+		109056B2281FCC65004897DA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109056B1281FCC65004897DA /* StringExtension.swift */; };
+		109056B5281FD3CB004897DA /* CryptoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109056B4281FD3CB004897DA /* CryptoCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1073C3BA2833790800C8BA12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1090568A281FBE83004897DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1073C3B72833790800C8BA12;
+			remoteInfo = "CryptofolioWatch WatchKit Extension";
+		};
+		1073C3CE2833790900C8BA12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1090568A281FBE83004897DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1073C3AF2833790600C8BA12;
+			remoteInfo = CryptofolioWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1073C3D42833790900C8BA12 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1073C3B92833790800C8BA12 /* CryptofolioWatch WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1073C3D82833790900C8BA12 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				1073C3D02833790900C8BA12 /* CryptofolioWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1073C3FE2834F42300C8BA12 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		100FE77D282B987600F71AA0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		106207C82835D53600D53A82 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		1070ECC32825C67E00762416 /* PortfolioDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDetailView.swift; sourceTree = "<group>"; };
+		1070ECCB282ACEC000762416 /* MarketDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetailView.swift; sourceTree = "<group>"; };
+		1073C386282CF36800C8BA12 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		1073C3B02833790600C8BA12 /* CryptofolioWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptofolioWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1073C3B22833790800C8BA12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1073C3B82833790800C8BA12 /* CryptofolioWatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "CryptofolioWatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1073C3BD2833790800C8BA12 /* cryptofolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cryptofolioApp.swift; sourceTree = "<group>"; };
+		1073C3BF2833790800C8BA12 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1073C3C12833790800C8BA12 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		1073C3C32833790800C8BA12 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		1073C3C52833790800C8BA12 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		1073C3C72833790900C8BA12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1073C3CA2833790900C8BA12 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1073C3CC2833790900C8BA12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1073C3CD2833790900C8BA12 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		1073C3DC283411DF00C8BA12 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
+		1073C3DF2834123100C8BA12 /* CryptoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewModel.swift; sourceTree = "<group>"; };
+		1073C3E12834126D00C8BA12 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1073C3E42834169800C8BA12 /* MarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketView.swift; sourceTree = "<group>"; };
+		1073C3E6283428F600C8BA12 /* MarketDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetailView.swift; sourceTree = "<group>"; };
+		1073C3E928342F2C00C8BA12 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		1073C3EB2834B00400C8BA12 /* cryptofolio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = cryptofolio.entitlements; sourceTree = "<group>"; };
+		1073C3F22834F42300C8BA12 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		1077D08828204DB00083AD5B /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		1077D08A28219EFD0083AD5B /* CryptoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewModel.swift; sourceTree = "<group>"; };
+		1077D0902821A0A50083AD5B /* cryptofolio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = cryptofolio.xcdatamodel; sourceTree = "<group>"; };
+		1077D0922821A25F0083AD5B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		1077D0942821A3480083AD5B /* PortfolioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewModel.swift; sourceTree = "<group>"; };
+		1077D0962821A5020083AD5B /* AddPortfolioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPortfolioView.swift; sourceTree = "<group>"; };
+		1077D098282277D00083AD5B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		1077D09A2822A2F00083AD5B /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
+		1077D09C2822A40F0083AD5B /* SearchCryptoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCryptoView.swift; sourceTree = "<group>"; };
+		1077D09E2822AB6A0083AD5B /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionView.swift; sourceTree = "<group>"; };
+		10905692281FBE83004897DA /* cryptofolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cryptofolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		10905695281FBE83004897DA /* cryptofolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cryptofolioApp.swift; sourceTree = "<group>"; };
+		10905697281FBE83004897DA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		10905699281FBE84004897DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1090569C281FBE84004897DA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		109056A3281FBE92004897DA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		109056A8281FBF34004897DA /* PortfolioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioView.swift; sourceTree = "<group>"; };
+		109056AA281FBF3C004897DA /* MarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketView.swift; sourceTree = "<group>"; };
+		109056AC281FBF4C004897DA /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
+		109056B1281FCC65004897DA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		109056B4281FD3CB004897DA /* CryptoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1073C3B52833790800C8BA12 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1090568F281FBE83004897DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1070ECC8282638B500762416 /* SwiftUICharts in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		100FE77C282B986500F71AA0 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				100FE77D282B987600F71AA0 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		1070ECC52826360E00762416 /* Portfolio */ = {
+			isa = PBXGroup;
+			children = (
+				109056A8281FBF34004897DA /* PortfolioView.swift */,
+				1070ECC32825C67E00762416 /* PortfolioDetailView.swift */,
+				1077D0962821A5020083AD5B /* AddPortfolioView.swift */,
+				1077D09E2822AB6A0083AD5B /* AddTransactionView.swift */,
+			);
+			path = Portfolio;
+			sourceTree = "<group>";
+		};
+		1070ECC928285A7200762416 /* Market */ = {
+			isa = PBXGroup;
+			children = (
+				109056AA281FBF3C004897DA /* MarketView.swift */,
+				1070ECCB282ACEC000762416 /* MarketDetailView.swift */,
+			);
+			path = Market;
+			sourceTree = "<group>";
+		};
+		1073C3B12833790600C8BA12 /* CryptofolioWatch */ = {
+			isa = PBXGroup;
+			children = (
+				1073C3B22833790800C8BA12 /* Assets.xcassets */,
+			);
+			path = CryptofolioWatch;
+			sourceTree = "<group>";
+		};
+		1073C3BC2833790800C8BA12 /* CryptofolioWatch WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1073C3E828342F1E00C8BA12 /* Extensions */,
+				1073C3E32834168700C8BA12 /* View */,
+				1073C3DE2834121E00C8BA12 /* ViewModel */,
+				1073C3DB2834117700C8BA12 /* Model */,
+				1073C3BD2833790800C8BA12 /* cryptofolioApp.swift */,
+				1073C3BF2833790800C8BA12 /* ContentView.swift */,
+				1073C3C12833790800C8BA12 /* NotificationController.swift */,
+				1073C3C32833790800C8BA12 /* NotificationView.swift */,
+				1073C3C52833790800C8BA12 /* ComplicationController.swift */,
+				1073C3C72833790900C8BA12 /* Assets.xcassets */,
+				1073C3CC2833790900C8BA12 /* Info.plist */,
+				1073C3CD2833790900C8BA12 /* PushNotificationPayload.apns */,
+				1073C3C92833790900C8BA12 /* Preview Content */,
+				1073C3E12834126D00C8BA12 /* Constants.swift */,
+			);
+			path = "CryptofolioWatch WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		1073C3C92833790900C8BA12 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1073C3CA2833790900C8BA12 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1073C3DB2834117700C8BA12 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1073C3DC283411DF00C8BA12 /* Crypto.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1073C3DE2834121E00C8BA12 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1073C3DF2834123100C8BA12 /* CryptoViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1073C3E32834168700C8BA12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1073C3E42834169800C8BA12 /* MarketView.swift */,
+				1073C3E6283428F600C8BA12 /* MarketDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1073C3E828342F1E00C8BA12 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1073C3E928342F2C00C8BA12 /* StringExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1073C3F12834F42300C8BA12 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1073C3F22834F42300C8BA12 /* Intents.framework */,
+				106207C82835D53600D53A82 /* IntentsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		10905689281FBE83004897DA = {
+			isa = PBXGroup;
+			children = (
+				10905694281FBE83004897DA /* cryptofolio */,
+				1073C3B12833790600C8BA12 /* CryptofolioWatch */,
+				1073C3BC2833790800C8BA12 /* CryptofolioWatch WatchKit Extension */,
+				1073C3F12834F42300C8BA12 /* Frameworks */,
+				10905693281FBE83004897DA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		10905693281FBE83004897DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				10905692281FBE83004897DA /* cryptofolio.app */,
+				1073C3B02833790600C8BA12 /* CryptofolioWatch.app */,
+				1073C3B82833790800C8BA12 /* CryptofolioWatch WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		10905694281FBE83004897DA /* cryptofolio */ = {
+			isa = PBXGroup;
+			children = (
+				1073C3EB2834B00400C8BA12 /* cryptofolio.entitlements */,
+				109056B0281FCC45004897DA /* Extension */,
+				109056A7281FBED1004897DA /* ViewModel */,
+				109056A6281FBECB004897DA /* Model */,
+				109056A5281FBEC2004897DA /* View */,
+				10905695281FBE83004897DA /* cryptofolioApp.swift */,
+				10905697281FBE83004897DA /* ContentView.swift */,
+				10905699281FBE84004897DA /* Assets.xcassets */,
+				1090569B281FBE84004897DA /* Preview Content */,
+				109056A3281FBE92004897DA /* Constants.swift */,
+				1077D08F2821A0A50083AD5B /* cryptofolio.xcdatamodeld */,
+				1077D0922821A25F0083AD5B /* Persistence.swift */,
+			);
+			path = cryptofolio;
+			sourceTree = "<group>";
+		};
+		1090569B281FBE84004897DA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1090569C281FBE84004897DA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		109056A5281FBEC2004897DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				100FE77C282B986500F71AA0 /* Settings */,
+				1070ECC928285A7200762416 /* Market */,
+				1070ECC52826360E00762416 /* Portfolio */,
+				109056B3281FD3B1004897DA /* Components */,
+				1077D09C2822A40F0083AD5B /* SearchCryptoView.swift */,
+				1073C386282CF36800C8BA12 /* UserSettings.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		109056A6281FBECB004897DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				109056AC281FBF4C004897DA /* Crypto.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		109056A7281FBED1004897DA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1077D08A28219EFD0083AD5B /* CryptoViewModel.swift */,
+				1077D0942821A3480083AD5B /* PortfolioViewModel.swift */,
+				1077D09A2822A2F00083AD5B /* TransactionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		109056B0281FCC45004897DA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				109056B1281FCC65004897DA /* StringExtension.swift */,
+				1077D08828204DB00083AD5B /* ViewExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		109056B3281FD3B1004897DA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				109056B4281FD3CB004897DA /* CryptoCell.swift */,
+				1077D098282277D00083AD5B /* SearchBar.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1073C3AF2833790600C8BA12 /* CryptofolioWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1073C3D52833790900C8BA12 /* Build configuration list for PBXNativeTarget "CryptofolioWatch" */;
+			buildPhases = (
+				1073C3AE2833790600C8BA12 /* Resources */,
+				1073C3D42833790900C8BA12 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1073C3BB2833790800C8BA12 /* PBXTargetDependency */,
+			);
+			name = CryptofolioWatch;
+			productName = CryptofolioWatch;
+			productReference = 1073C3B02833790600C8BA12 /* CryptofolioWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		1073C3B72833790800C8BA12 /* CryptofolioWatch WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1073C3D12833790900C8BA12 /* Build configuration list for PBXNativeTarget "CryptofolioWatch WatchKit Extension" */;
+			buildPhases = (
+				1073C3B42833790800C8BA12 /* Sources */,
+				1073C3B52833790800C8BA12 /* Frameworks */,
+				1073C3B62833790800C8BA12 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CryptofolioWatch WatchKit Extension";
+			productName = "CryptofolioWatch WatchKit Extension";
+			productReference = 1073C3B82833790800C8BA12 /* CryptofolioWatch WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+		10905691281FBE83004897DA /* cryptofolio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 109056A0281FBE84004897DA /* Build configuration list for PBXNativeTarget "cryptofolio" */;
+			buildPhases = (
+				1090568E281FBE83004897DA /* Sources */,
+				1090568F281FBE83004897DA /* Frameworks */,
+				10905690281FBE83004897DA /* Resources */,
+				1073C3D82833790900C8BA12 /* Embed Watch Content */,
+				1073C3FE2834F42300C8BA12 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1073C3CF2833790900C8BA12 /* PBXTargetDependency */,
+			);
+			name = cryptofolio;
+			packageProductDependencies = (
+				1070ECC7282638B500762416 /* SwiftUICharts */,
+			);
+			productName = cryptofolio;
+			productReference = 10905692281FBE83004897DA /* cryptofolio.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1090568A281FBE83004897DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					1073C3AF2833790600C8BA12 = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					1073C3B72833790800C8BA12 = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					10905691281FBE83004897DA = {
+						CreatedOnToolsVersion = 13.3;
+					};
+				};
+			};
+			buildConfigurationList = 1090568D281FBE83004897DA /* Build configuration list for PBXProject "cryptofolio" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 10905689281FBE83004897DA;
+			packageReferences = (
+				1070ECC6282638B500762416 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
+			productRefGroup = 10905693281FBE83004897DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				10905691281FBE83004897DA /* cryptofolio */,
+				1073C3AF2833790600C8BA12 /* CryptofolioWatch */,
+				1073C3B72833790800C8BA12 /* CryptofolioWatch WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1073C3AE2833790600C8BA12 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1073C3B32833790800C8BA12 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1073C3B62833790800C8BA12 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1073C3CB2833790900C8BA12 /* Preview Assets.xcassets in Resources */,
+				1073C3C82833790900C8BA12 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10905690281FBE83004897DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1090569D281FBE84004897DA /* Preview Assets.xcassets in Resources */,
+				1090569A281FBE84004897DA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1073C3B42833790800C8BA12 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1073C3DD283411DF00C8BA12 /* Crypto.swift in Sources */,
+				1073C3C22833790800C8BA12 /* NotificationController.swift in Sources */,
+				1073C3E52834169800C8BA12 /* MarketView.swift in Sources */,
+				1073C3E7283428F600C8BA12 /* MarketDetailView.swift in Sources */,
+				1073C3C02833790800C8BA12 /* ContentView.swift in Sources */,
+				1073C3E02834123100C8BA12 /* CryptoViewModel.swift in Sources */,
+				1073C3C62833790800C8BA12 /* ComplicationController.swift in Sources */,
+				1073C3BE2833790800C8BA12 /* cryptofolioApp.swift in Sources */,
+				1073C3C42833790800C8BA12 /* NotificationView.swift in Sources */,
+				1073C3EA28342F2C00C8BA12 /* StringExtension.swift in Sources */,
+				1073C3E22834126D00C8BA12 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1090568E281FBE83004897DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				109056AD281FBF4C004897DA /* Crypto.swift in Sources */,
+				109056B5281FD3CB004897DA /* CryptoCell.swift in Sources */,
+				1077D09F2822AB6A0083AD5B /* AddTransactionView.swift in Sources */,
+				1077D0952821A3480083AD5B /* PortfolioViewModel.swift in Sources */,
+				10905698281FBE83004897DA /* ContentView.swift in Sources */,
+				1077D099282277D00083AD5B /* SearchBar.swift in Sources */,
+				1077D0972821A5020083AD5B /* AddPortfolioView.swift in Sources */,
+				1070ECC42825C67E00762416 /* PortfolioDetailView.swift in Sources */,
+				1077D08B28219EFD0083AD5B /* CryptoViewModel.swift in Sources */,
+				1077D08928204DB00083AD5B /* ViewExtension.swift in Sources */,
+				109056AB281FBF3C004897DA /* MarketView.swift in Sources */,
+				1077D0932821A25F0083AD5B /* Persistence.swift in Sources */,
+				109056B2281FCC65004897DA /* StringExtension.swift in Sources */,
+				1077D09B2822A2F00083AD5B /* TransactionViewModel.swift in Sources */,
+				1073C387282CF36800C8BA12 /* UserSettings.swift in Sources */,
+				10905696281FBE83004897DA /* cryptofolioApp.swift in Sources */,
+				109056A4281FBE92004897DA /* Constants.swift in Sources */,
+				1077D09D2822A40F0083AD5B /* SearchCryptoView.swift in Sources */,
+				1077D0912821A0A50083AD5B /* cryptofolio.xcdatamodeld in Sources */,
+				1070ECCC282ACEC000762416 /* MarketDetailView.swift in Sources */,
+				109056A9281FBF34004897DA /* PortfolioView.swift in Sources */,
+				100FE77E282B987600F71AA0 /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1073C3BB2833790800C8BA12 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1073C3B72833790800C8BA12 /* CryptofolioWatch WatchKit Extension */;
+			targetProxy = 1073C3BA2833790800C8BA12 /* PBXContainerItemProxy */;
+		};
+		1073C3CF2833790900C8BA12 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1073C3AF2833790600C8BA12 /* CryptofolioWatch */;
+			targetProxy = 1073C3CE2833790900C8BA12 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1073C3D22833790900C8BA12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CryptofolioWatch WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = X3D8UM28XD;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CryptofolioWatch WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "CryptofolioWatch WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shrall.cryptofolio.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Debug;
+		};
+		1073C3D32833790900C8BA12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CryptofolioWatch WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = X3D8UM28XD;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CryptofolioWatch WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "CryptofolioWatch WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shrall.cryptofolio.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Release;
+		};
+		1073C3D62833790900C8BA12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X3D8UM28XD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = CryptofolioWatch_WatchKit_Extension;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.shrall.cryptofolio;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shrall.cryptofolio.watchkitapp;
+				PRODUCT_NAME = CryptofolioWatch;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Debug;
+		};
+		1073C3D72833790900C8BA12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X3D8UM28XD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = CryptofolioWatch_WatchKit_Extension;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.shrall.cryptofolio;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shrall.cryptofolio.watchkitapp;
+				PRODUCT_NAME = CryptofolioWatch;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Release;
+		};
+		1090569E281FBE84004897DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1090569F281FBE84004897DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		109056A1281FBE84004897DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = cryptofolio/cryptofolio.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"cryptofolio/Preview Content\"";
+				DEVELOPMENT_TEAM = X3D8UM28XD;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_NSSiriUsageDescription = "Siri support is used to help users to access the app using voice commands.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shrall.cryptofolio;
+				PRODUCT_NAME = cryptofolio;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		109056A2281FBE84004897DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = cryptofolio/cryptofolio.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"cryptofolio/Preview Content\"";
+				DEVELOPMENT_TEAM = X3D8UM28XD;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_NSSiriUsageDescription = "Siri support is used to help users to access the app using voice commands.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shrall.cryptofolio;
+				PRODUCT_NAME = cryptofolio;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1073C3D12833790900C8BA12 /* Build configuration list for PBXNativeTarget "CryptofolioWatch WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1073C3D22833790900C8BA12 /* Debug */,
+				1073C3D32833790900C8BA12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1073C3D52833790900C8BA12 /* Build configuration list for PBXNativeTarget "CryptofolioWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1073C3D62833790900C8BA12 /* Debug */,
+				1073C3D72833790900C8BA12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1090568D281FBE83004897DA /* Build configuration list for PBXProject "cryptofolio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1090569E281FBE84004897DA /* Debug */,
+				1090569F281FBE84004897DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		109056A0281FBE84004897DA /* Build configuration list for PBXNativeTarget "cryptofolio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				109056A1281FBE84004897DA /* Debug */,
+				109056A2281FBE84004897DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1070ECC6282638B500762416 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1070ECC7282638B500762416 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1070ECC6282638B500762416 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		1077D08F2821A0A50083AD5B /* cryptofolio.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1077D0902821A0A50083AD5B /* cryptofolio.xcdatamodel */,
+			);
+			currentVersion = 1077D0902821A0A50083AD5B /* cryptofolio.xcdatamodel */;
+			path = cryptofolio.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1090568A281FBE83004897DA /* Project object */;
+}

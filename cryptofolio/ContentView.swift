@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Intents
 
 struct ContentView: View {
     @State private var tabSelection = 1
@@ -14,7 +15,7 @@ struct ContentView: View {
             NavigationView{
                 PortfolioView()
                     .navigationTitle("")
-                .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarTitleDisplayMode(.inline)
             }.tabItem {
                 Label("Portfolio", systemImage: "chart.pie")
             }
@@ -22,7 +23,7 @@ struct ContentView: View {
             NavigationView{
                 MarketView()
                     .navigationTitle("")
-                .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarTitleDisplayMode(.inline)
             }.tabItem {
                 Label("Market", systemImage: "chart.line.uptrend.xyaxis")
             }
@@ -30,11 +31,15 @@ struct ContentView: View {
             NavigationView{
                 SettingsView()
                     .navigationTitle("Settings")
-                .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarTitleDisplayMode(.inline)
             }.tabItem {
                 Label("Settings", systemImage: "gearshape")
             }
             .tag(3)
+        }.onAppear{
+            INPreferences.requestSiriAuthorization({status in
+                // Handle errors here
+            })
         }
     }
 }

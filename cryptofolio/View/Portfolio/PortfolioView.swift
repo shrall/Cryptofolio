@@ -52,32 +52,38 @@ struct PortfolioView: View {
                                 if time < 18 {
                                     Text("GM, "+(UserDefaults.standard.string(forKey: "userName") ?? "User")+"!").bold().font(Font.system(size: 32))
                                         .frame(maxWidth: .infinity, alignment: .leading)
+                                        .accessibilityLabel("Good Morning \(UserDefaults.standard.string(forKey: "userName") ?? "User")")
                                 } else {
                                     Text("GN, "+(UserDefaults.standard.string(forKey: "userName") ?? "User")+"!").bold().font(Font.system(size: 32))
                                         .frame(maxWidth: .infinity, alignment: .leading)
+                                        .accessibilityLabel("Good Night \(UserDefaults.standard.string(forKey: "userName") ?? "User")")
                                 }
-                                Text("Total Asset Value").font(Font.system(size: 12)).padding(.top, 1)
+                                Text("Total Asset Value").font(.caption).padding(.top, 1)
+                                    .accessibilityHidden(true)
                                 if cryptoVM.portfolioCryptos.count != fetchedPortfolio.count {
                                     ProgressView().frame(width: 36, height: 48)
                                 } else {
                                     Text(String(format: "%.2f", totalAssetValue).currencyFormatting()).font(Font.system(size: 36)).bold().padding(.bottom)
+                                        .accessibilityLabel("Your total asset value is \(String(format: "%.2f", totalAssetValue).currencyFormatting())")
                                 }
                             }.padding(.horizontal).frame(width: maxWidth, height: maxHeight).background(
                                 LinearGradient(gradient: Gradient(colors: [Color("PrimaryColor"), Color("PrimaryColorDark")]), startPoint: .topLeading, endPoint: .bottomTrailing).hueRotation(.degrees(animateGradient ? 15 : 0))
                                     .onAppear {
                                         withAnimation(.easeInOut(duration: 5.0).repeatForever(autoreverses: true)) {
-                                            animateGradient.toggle()
+                                            //                                            animateGradient.toggle()
                                         }
                                     }).foregroundColor(.white).offset(y: -reader.frame(in: .global).minY)
                         )
                     }.frame(width: maxWidth, height: maxHeight)
                     HStack {
                         Text("Assets").bold().foregroundColor(.primary).font(Font.system(size: 22)).textCase(.none)
+                            .accessibilityHidden(true)
                         Spacer()
                         Button {
                             addView.toggle()
                         } label: {
                             Image(systemName: "plus").resizable().frame(width: 18, height: 18)
+                                .accessibilityHidden(true)
                         }
                     }.padding().background().cornerRadius(12, corners: [.topLeft, .topRight])
                     if fetchedPortfolio.count > 0 {
@@ -109,7 +115,7 @@ struct PortfolioView: View {
             }
             .ignoresSafeArea(.all, edges: .top)
             VStack(alignment: .leading, spacing: 2) {
-                Text("Total Asset Value").font(Font.system(size: 8))
+                Text("Total Asset Value").font(.caption)
                 Text(String(format: "%.2f", totalAssetValue).currencyFormatting()).font(Font.system(size: 24)).bold()
                 HStack {
                     Text("Assets").bold().foregroundColor(.primary).font(Font.system(size: 22)).textCase(.none)
@@ -121,6 +127,7 @@ struct PortfolioView: View {
                     }
                 }
             }
+            .minimumScaleFactor(0.01)
             .padding([.horizontal, .bottom]).padding(.top, UIApplication.shared.connectedScenes
                 .filter { $0.activationState == .foregroundActive }
                 .compactMap { $0 as? UIWindowScene }
