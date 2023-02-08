@@ -85,6 +85,7 @@ struct AddTransactionView: View {
             cryptoVM.fetchDetail(id: cryptoID) { result in
                 crypto = result
             }
+            transactionVM.amount = 0.0
         }
     }
 }

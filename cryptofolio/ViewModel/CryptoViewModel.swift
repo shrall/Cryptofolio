@@ -18,9 +18,9 @@ class CryptoViewModel: ObservableObject {
     
     func fetchTop10() {
         var url = URL(string: "")
-        if(UserDefaults.standard.string(forKey: "preferredCurrency") == "usd" || UserDefaults.standard.string(forKey: "preferredCurrency") == nil){
+        if UserDefaults.standard.string(forKey: "preferredCurrency") == "usd" || UserDefaults.standard.string(forKey: "preferredCurrency") == nil {
             url = URL(string: constant.baseURL + "coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=true")
-        }else{
+        } else {
             url = URL(string: constant.baseURL + "coins/markets?vs_currency=idr&order=market_cap_desc&per_page=10&page=1&sparkline=true")
         }
         let task = URLSession.shared.dataTask(with: url!) { [weak self]
@@ -109,10 +109,10 @@ class CryptoViewModel: ObservableObject {
     
     func fetchChartData(id: String, completion: @escaping (CryptoPrice) -> ()) {
         var url = URL(string: "")
-        if(UserDefaults.standard.string(forKey: "preferredCurrency") == "usd" || UserDefaults.standard.string(forKey: "preferredCurrency") == nil){
-            url = URL(string: constant.baseURL + "coins/"+id+"/market_chart?vs_currency=usd&days=1&interval=hourly")
-        }else{
-            url = URL(string: constant.baseURL + "coins/"+id+"/market_chart?vs_currency=idr&days=1&interval=hourly")
+        if UserDefaults.standard.string(forKey: "preferredCurrency") == "usd" || UserDefaults.standard.string(forKey: "preferredCurrency") == nil {
+            url = URL(string: constant.baseURL + "coins/" + id + "/market_chart?vs_currency=usd&days=1&interval=hourly")
+        } else {
+            url = URL(string: constant.baseURL + "coins/" + id + "/market_chart?vs_currency=idr&days=1&interval=hourly")
         }
         let task = URLSession.shared.dataTask(with: url!) {
             data, _, error in
@@ -141,10 +141,10 @@ class CryptoViewModel: ObservableObject {
             }
         }
         var url = URL(string: "")
-        if(UserDefaults.standard.string(forKey: "preferredCurrency") == "usd" || UserDefaults.standard.string(forKey: "preferredCurrency") == nil){
-            url = URL(string: constant.baseURL + "coins/markets?vs_currency=usd&ids=" + idQuery + "&order=id_asc&per_page=1&page=1&sparkline=false")
-        }else{
-            url = URL(string: constant.baseURL + "coins/markets?vs_currency=idr&ids=" + idQuery + "&order=id_asc&per_page=1&page=1&sparkline=false")
+        if UserDefaults.standard.string(forKey: "preferredCurrency") == "usd" || UserDefaults.standard.string(forKey: "preferredCurrency") == nil {
+            url = URL(string: constant.baseURL + "coins/markets?vs_currency=usd&ids=" + idQuery + "&order=id_asc&page=1&sparkline=false")
+        } else {
+            url = URL(string: constant.baseURL + "coins/markets?vs_currency=idr&ids=" + idQuery + "&order=id_asc&page=1&sparkline=false")
         }
         let task = URLSession.shared.dataTask(with: url!) { [weak self]
             data, _, error in

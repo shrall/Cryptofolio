@@ -26,7 +26,7 @@ struct PortfolioView: View {
     
     @StateObject var cryptoVM = CryptoViewModel()
     
-    init(){
+    init() {
         UITableView.appearance().backgroundColor = .clear
     }
     
@@ -140,7 +140,7 @@ struct PortfolioView: View {
             setup()
             cryptoVM.portfolioCryptos = []
         }.sheet(isPresented: $addView) {
-            SearchCryptoView(function: self.setup, title: "Select Crypto",isMarket: false, addView: $addView).onDisappear {
+            SearchCryptoView(function: self.setup, title: "Select Crypto", isMarket: false, addView: $addView).onDisappear {
                 updateTotalPrice()
             }
         }
